@@ -4,7 +4,7 @@ draft: false
 slug: /semana3
 ---
 
-## Semana 3
+# Semana 3
 
 ## Operadores aritméticos
 
@@ -373,91 +373,477 @@ public class OperadoresLogicos {
 }
 ```
 
-## Conversión de tipos en Java
+## Estructuras condicionales:
 
-La conversión de tipos de datos en Java es un proceso mediante el cual se convierte un valor de un tipo de dato en otro. Java tiene dos tipos de conversión de datos: la conversión implícita y la conversión explícita.
+Las estructuras condicionales en Java permiten tomar decisiones y ejecutar ciertas partes de código dependiendo si se cumple o no una determinada condición.
 
-La conversión implícita se produce automáticamente cuando se asigna un valor de un tipo de dato a una variable de otro tipo de datos compatible. Por ejemplo, si se asigna un valor de tipo "int" a una variable de tipo "double", Java realiza la conversión automáticamente.
+Las principales estructuras condicionales son:
 
-```java
-int x = 5;
-double y = x; // Conversión implícita de int a double
+### 1. if: Ejecuta un bloque de código si se cumple la condición.
+
+Sintaxis:
+```java  
+if (condición) {
+  // código a ejecutar 
+}
 ```
-La conversión explícita, también conocida como "casting", se utiliza cuando se desea convertir un valor de un tipo de dato a otro tipo de datos que no es compatible de forma implícita. Para hacer una conversión explícita, se debe utilizar una sintaxis especial que indica al compilador que se desea convertir el valor a otro tipo de datos.
 
-```java
-double x = 3.14;
-int y = (int) x; // Conversión explícita de double a int
-```
-En este ejemplo, se utiliza la sintaxis "(int)" para indicar que se desea convertir el valor "x" de tipo "double" a un valor de tipo "int". Es importante tener en cuenta que la conversión explícita puede provocar la pérdida de información si se intenta convertir un valor a un tipo de datos con menos precisión.
+### Ejemplos if:
 
-Además de las conversiones implícitas y explícitas, Java también proporciona métodos para convertir valores entre diferentes tipos de datos, como los métodos "valueOf()" y "parseXxx()" de la clase "String". Estos métodos se utilizan para convertir valores de tipo "String" a otros tipos de datos, como "int" o "double".
+Estos ejemplos muestran diferentes formas de utilizar estructuras condicionales en Java para tomar decisiones basadas en ciertas condiciones.
 
-### Método parseXxx()
-
-En Java, los métodos parseXxx() se utilizan para convertir una representación de cadena (String) en un valor de tipo primitivo o un objeto de clase envolvente. Aquí tienes algunos ejemplos de métodos parseXxx() para diferentes tipos de datos:
-
-- **parseInt()** - Convierte una cadena en un valor entero (int):
+#### 1. Comprobando si una variable es mayor que otra:
 
 ```java  
-String numberStr = "123";
-int number = Integer.parseInt(numberStr);
-System.out.println(number); // Salida: 123
-```
+int x = 10;
+int y = 5;
 
-- **parseDouble()** - Convierte una cadena en un valor de punto flotante (double):
+if (x > y) {
+  System.out.println("x es mayor que y");
+}
+```
+#### 2. Comprobando si una variable es diferente de un valor específico:
 
 ```java  
-String decimalStr = "3.14";
-double decimal = Double.parseDouble(decimalStr);
-System.out.println(decimal); // Salida: 3.14
-```
+int edad = 18;
 
-- **parseBoolean()** - Convierte una cadena en un valor booleano (boolean):
+if (edad != 18) {
+  System.out.println("La edad no es 18");
+}
+```
+#### 3. Comprobando si una variable está dentro de un rango de valores:
 
 ```java  
-String boolStr = "true";
-boolean boolValue = Boolean.parseBoolean(boolStr);
-System.out.println(boolValue); // Salida: true
+int nota = 10;
+
+if (nota >= 9 && nota <= 10) {
+  System.out.println("La nota es excelente");
+}
 ```
 
-- **parseLong()** - Convierte una cadena en un valor entero largo (long):
+
+### 2. if - else: Ejecuta un bloque si se cumple la condición, y otro bloque distinto si no se cumple.
+
+Sintaxis:
+```java  
+if (condición) {
+  // código si se cumple
+} else {
+  // código si no se cumple
+}
+```
+
+
+### Ejemplos if else:
+
+#### 1. Comprobando si una variable es mayor que otra y, si no, imprimiendo un mensaje diferente:
 
 ```java  
-String floatStr = "2.71828";
-float floatValue = Float.parseFloat(floatStr);
-System.out.println(floatValue); // Salida: 2.71828
+int x = 10;
+int y = 5;
+
+if (x > y) {
+  System.out.println("x es mayor que y");
+} else {
+  System.out.println("x es menor o igual que y");
+}
 ```
 
-- **parseFloat()** - Convierte una cadena en un valor de punto flotante de precisión simple (float):
+#### 2. Comprobando si una variable es igual a un valor específico y, si no, imprimiendo un mensaje diferente:
 
 ```java  
-String longStr = "9876543210";
-long longValue = Long.parseLong(longStr);
-System.out.println(longValue); // Salida: 9876543210
-```
-### Método valueOf()
+String nombre = "Juan";
 
-El método valueOf() en Java se utiliza para convertir un tipo de dato primitivo o una cadena en un objeto de clase envolvente (wrapper class). Aquí tienes un ejemplo de cómo se puede utilizar el método valueOf():
+if (nombre.equals("Juan")) {
+  System.out.println("El nombre es Juan");
+} else {
+  System.out.println("El nombre no es Juan");
+}
+```
+
+#### 3. Comprobando si una variable está dentro de un rango de valores y, si no, imprimiendo un mensaje diferente:
 
 ```java  
-// Ejemplo 1: Converting a String to Integer object
-String numberStr = "123";
-Integer numberObj = Integer.valueOf(numberStr);
-System.out.println(numberObj); // Salida: 123
+int nota = 10;
 
-// Ejemplo 2: Converting a String to Double object
-String decimalStr = "3.14";
-Double decimalObj = Double.valueOf(decimalStr);
-System.out.println(decimalObj); // Salida: 3.14
-
-// Ejemplo 3: Converting an int to Integer object
-int intValue = 42;
-Integer intObj = Integer.valueOf(intValue);
-System.out.println(intObj); // Salida: 42
-
-// Ejemplo 4: Converting a boolean to Boolean object
-boolean boolValue = true;
-Boolean boolObj = Boolean.valueOf(boolValue);
-System.out.println(boolObj); // Salida: true
+if (nota >= 9 && nota <= 10) {
+  System.out.println("La nota es excelente");
+} else {
+  System.out.println("La nota no es excelente");
+}
 ```
+
+### 3. if - else if - else: Permite evaluar múltiples condiciones. Se ejecuta el primer bloque donde se cumpla la condición.
+
+Sintaxis:
+```java  
+if (condición 1) {
+  // código si se cumple 1
+} else if (condición 2) {
+  // código si se cumple 2 
+} else {
+  // código si no se cumple ninguna
+}
+```
+
+### Ejemplos else if:
+
+#### 1. Comprobando si una variable es mayor que otra, si no, si es igual y, si no, imprimiendo un mensaje diferente:
+
+```java  
+int x = 10;
+int y = 5;
+
+if (x > y) {
+  System.out.println("x es mayor que y");
+} else if (x == y) {
+  System.out.println("x es igual a y");
+} else {
+  System.out.println("x es menor que y");
+}
+```
+#### 2. Comprobando si una variable está dentro de un rango de valores, si no, si es mayor o si es menor y, si no, imprimiendo un mensaje diferente:
+
+```java  
+int nota = 10;
+
+if (nota >= 9 && nota <= 10) {
+  System.out.println("La nota es excelente");
+} else if (nota > 10) {
+  System.out.println("La nota es sobresaliente");
+} else if (nota < 0) {
+  System.out.println("La nota es inválida");
+} else {
+  System.out.println("La nota es buena");
+}
+```
+#### 3. Comprobando si una variable está vacía o no, si no, si tiene una longitud específica y, si no, imprimiendo un mensaje diferente:
+
+```java  
+String cadena = "";
+
+if (cadena.isEmpty()) {
+  System.out.println("La cadena está vacía");
+} else if (cadena.length() == 0) {
+  System.out.println("La cadena es nula");
+} else {
+  System.out.println("La cadena no está vacía");
+}
+```
+
+### 4. Operador ternario
+
+El operador ternario en Java es una expresión que se utiliza para evaluar una condición y devolver uno de dos valores, dependiendo del resultado de la evaluación. La sintaxis del operador ternario es:
+
+Sintaxis:
+```java  
+variable = (condicion) ? valor_si_verdadero : valor_si_falso;
+```
+
+### Ejemplos operador ternario:
+
+#### 1. Evaluar si es mayor de edad
+```java  
+int edad = 18;
+String mensaje = (edad >= 18) ? "Eres mayor de edad" : "Eres menor de edad";
+
+System.out.println(mensaje); // Imprime "Eres mayor de edad"
+```
+
+#### 2. Calcular el descuento de un producto
+```java  
+double precio = 100.0;
+int cantidad = 5;
+double descuento = (cantidad >= 3) ? precio * 0.1 : 0.0;
+
+double precioFinal = precio - descuento;
+
+System.out.println("Precio final: " + precioFinal); // Imprime 90.0
+```
+
+#### 3. Devuelve el texto "El número es par" si el número es par, y el texto "El número es impar" si el número es impar.
+```java  
+String texto = (numero % 2 == 0) ? "El número es par" : "El número es impar";
+```
+
+### 5. switch: Evalúa una variable o expresión y ejecuta el código del case que coincida con el valor.
+
+Sintaxis:
+```java  
+switch(expresión) {
+  case valor1: 
+    //código
+    break;
+  case valor2: 
+   //código
+   break;
+  default:
+   //código por defecto  
+}
+```
+
+Estas estructuras permiten controlar el flujo del programa ejecutando código de manera condicional. Son muy útiles para realizar selecciones y tomar decisiones en la lógica de un programa.
+
+### Ejemplos switch:
+
+#### 1. Escribe un programa que le pida al usuario que ingrese un día de la semana. El programa debe imprimir el número del día de la semana.
+
+```java  
+import java.util.Scanner;
+
+public class DiaSemana {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    System.out.println("Ingrese un día de la semana: ");
+    String dia = sc.nextLine();
+
+    switch (dia) {
+      case "lunes":
+        System.out.println("1");
+        break;
+      case "martes":
+        System.out.println("2");
+        break;
+      case "miércoles":
+        System.out.println("3");
+        break;
+      case "jueves":
+        System.out.println("4");
+        break;
+      case "viernes":
+        System.out.println("5");
+        break;
+      case "sábado":
+        System.out.println("6");
+        break;
+      case "domingo":
+        System.out.println("7");
+        break;
+      default:
+        System.out.println("Día no válido");
+    }
+  }
+}
+```
+
+#### 2. Escribe un programa que le pida al usuario que ingrese una calificación de 1 a 10. El programa debe imprimir la calificación en letras.
+
+```java  
+import java.util.Scanner;
+
+public class Calificacion {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    System.out.println("Ingrese una calificación de 1 a 10: ");
+    int calificacion = sc.nextInt();
+
+    switch (calificacion) {
+      case 1:
+        System.out.println("Insuficiente");
+        break;
+      case 2:
+        System.out.println("Insuficiente");
+        break;
+      case 3:
+        System.out.println("Insuficiente");
+        break;
+      case 4:
+        System.out.println("Suficiente");
+        break;
+      case 5:
+        System.out.println("Bien");
+        break;
+      case 6:
+        System.out.println("Notable");
+        break;
+      case 7:
+        System.out.println("Sobresaliente");
+        break;
+      case 8:
+        System.out.println("Sobresaliente");
+        break;
+      case 9:
+        System.out.println("Sobresaliente");
+        break;
+      case 10:
+        System.out.println("Excelente");
+        break;
+      default:
+        System.out.println("Calificación no válida");
+    }
+  }
+}
+```
+
+#### 3. Escribe un programa que le pida al usuario que ingrese un número entero. El programa debe imprimir la estación del año correspondiente al número.
+
+```java  
+import java.util.Scanner;
+
+public class Estacion {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    System.out.println("Ingrese un número entero: ");
+    int numero = sc.nextInt();
+
+    switch (numero) {
+      case 1:
+      case 2:
+      case 3:
+        System.out.println("Invierno");
+        break;
+      case 4:
+      case 5:
+      case 6:
+        System.out.println("Primavera");
+        break;
+      case 7:
+      case 8:
+      case 9:
+        System.out.println("Verano");
+        break;
+      case 10:
+      case 11:
+      case 12:
+        System.out.println("Otoño");
+        break;
+      default:
+        System.out.println("Número no válido");
+    }
+  }
+}
+```
+
+### Otros ejemplos
+
+#### 1. Comprobación del número par o impar:
+
+```java  
+int numero = 7;
+
+if (numero % 2 == 0) {
+    System.out.println("El número es par.");
+} else {
+    System.out.println("El número es impar.");
+}
+```
+#### 2. Evaluación de la calificación de un estudiante:
+
+```java  
+int calificacion = 85;
+
+if (calificacion >= 90) {
+    System.out.println("Excelente");
+} else if (calificacion >= 80) {
+    System.out.println("Bueno");
+} else if (calificacion >= 70) {
+    System.out.println("Regular");
+} else {
+    System.out.println("Reprobado");
+}
+```
+#### 3. Verificación de la elegibilidad para votar:
+
+```java  
+int edad = 17;
+
+if (edad >= 18) {
+    System.out.println("Eres elegible para votar.");
+} else {
+    System.out.println("No eres elegible para votar.");
+}
+```
+#### 4. Determinar si un número es positivo, negativo o cero:
+
+```java  
+int numero = -3;
+
+if (numero > 0) {
+    System.out.println("El número es positivo.");
+} else if (numero < 0) {
+    System.out.println("El número es negativo.");
+} else {
+    System.out.println("El número es cero.");
+}
+```
+#### 5. Validación de una contraseña:
+
+```java  
+String contraseña = "secreta123";
+
+if (contraseña.equals("secreta123")) {
+    System.out.println("Contraseña correcta. Acceso concedido.");
+} else {
+    System.out.println("Contraseña incorrecta. Acceso denegado.");
+}
+```
+
+## Actividad de clase
+
+### Actividad: Sistema de Puntos de Fidelización
+
+**Objetivo:** Aplicar conceptos básicos de Java, como la declaración de variables, operadores aritméticos, operadores de comparación, operadores lógicos y conversiones de tipos de datos, para simular un sistema de puntos de fidelización para un comercio.
+
+**Contexto:**
+
+Eres el desarrollador de un sistema de puntos de fidelización para un comercio. Necesitas crear un programa que calcule los puntos que un cliente acumula por sus compras, y que determine si el cliente ha alcanzado un determinado nivel de fidelización.
+
+**Datos:**
+
+* **Cantidad de compra:** Se solicitará al usuario que ingrese la cantidad total de la compra (en pesos).
+* **Puntos por peso:** La tienda otorga 1 punto por cada 10 pesos de compra.
+* **Niveles de Fidelización:**
+    * **Bronce:** 0-100 puntos
+    * **Plata:** 101-500 puntos
+    * **Oro:** 501-1000 puntos
+    * **Platino:** Más de 1000 puntos
+
+**Desafíos:**
+
+**1. Calcular Puntos:**
+
+* **Descripción:** Crea un programa en Java que calcule los puntos acumulados por un cliente, basado en la cantidad de la compra y la regla de puntos por peso.
+* **Pistas:**
+    * Utiliza la clase `Scanner` para obtener la cantidad de la compra del usuario.
+    * Utiliza la división entera (`/`) para calcular el número de puntos.
+* **Desafío:**
+    * Declara una variable `cantidadCompra` de tipo `double` para almacenar la cantidad ingresada por el usuario.
+    * Calcula los puntos acumulados y guarda el resultado en una variable `puntosAcumulados` de tipo `int`.
+    * Imprime la cantidad de puntos acumulados en la consola.
+
+**2. Determinar Nivel de Fidelización:**
+
+* **Descripción:**  Crea un programa que determine el nivel de fidelización del cliente en base a los puntos acumulados.
+* **Pistas:**
+    * Utiliza operadores de comparación para evaluar si los puntos acumulados se encuentran dentro de los rangos de cada nivel de fidelización.
+    * Utiliza la estructura `if`-`else if`-`else` para determinar el nivel correspondiente.
+* **Desafío:**
+    * Declara una variable `nivelFidelizacion` de tipo `String` para almacenar el nivel de fidelización.
+    * Compara `puntosAcumulados` con los rangos de cada nivel y asigna el nivel correspondiente a `nivelFidelizacion`.
+    * Imprime el nivel de fidelización en la consola.
+
+**3. Ofertas Adicionales:**
+
+* **Descripción:**  Añade ofertas adicionales al sistema, como un descuento adicional o un regalo por alcanzar ciertos niveles de fidelización.
+* **Pistas:**
+    * Utiliza operadores lógicos (`&&` o `||`) para combinar condiciones.
+    * Implementa una lógica que aplique el descuento o el regalo según el nivel de fidelización.
+* **Desafío:**
+    * Añade una lógica que otorgue un descuento del 10% a los clientes con nivel Oro o Platino.
+    * Añade una lógica que otorgue un regalo especial (por ejemplo, un cupón para un producto) a los clientes con nivel Platino.
+    * Imprime las ofertas adicionales en la consola.
+
+**Evaluación:**
+
+* Los participantes deben completar todos los desafíos correctamente, utilizando los conceptos de Java aprendidos.
+* Se puede evaluar la precisión de los cálculos, la claridad del código y la capacidad de los participantes para implementar la lógica de las ofertas adicionales.
+
+
+
+
