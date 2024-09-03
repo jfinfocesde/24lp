@@ -2,3 +2,156 @@
 sidebar_position: 1
 draft: true
 ---
+
+## Soluciones a los Ejercicios sin Ciclos
+
+### Ejercicios de Array:
+
+1. **Intercambio de elementos:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+int temp = numeros[0];
+numeros[0] = numeros[numeros.length - 1];
+numeros[numeros.length - 1] = temp;
+```
+
+2. **Verificar igualdad:**
+
+```java
+int[] arr1 = {1, 2, 3, 4, 5};
+int[] arr2 = {1, 2, 3, 4, 5};
+boolean iguales = Arrays.equals(arr1, arr2); // Usa el método equals de la clase Arrays
+```
+
+3. **Encontrar el elemento máximo:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+int maximo = Arrays.stream(numeros).max().getAsInt(); // Usa la clase Stream para obtener el máximo
+```
+
+4. **Encontrar el elemento mínimo:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+int minimo = Arrays.stream(numeros).min().getAsInt(); // Usa la clase Stream para obtener el mínimo
+```
+
+5. **Suma de elementos:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+int suma = Arrays.stream(numeros).sum(); // Usa la clase Stream para sumar los elementos
+```
+
+6. **Promedio de elementos:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+double promedio = Arrays.stream(numeros).average().getAsDouble(); // Usa la clase Stream para obtener el promedio
+```
+
+7. **Contar elementos pares:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+long pares = Arrays.stream(numeros).filter(n -> n % 2 == 0).count(); // Usa la clase Stream para filtrar y contar los pares
+```
+
+8. **Contar elementos impares:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+long impares = Arrays.stream(numeros).filter(n -> n % 2 != 0).count(); // Usa la clase Stream para filtrar y contar los impares
+```
+
+9. **Verificar si un elemento existe:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+boolean existe = Arrays.stream(numeros).anyMatch(n -> n == 3); // Usa la clase Stream para verificar la existencia
+```
+
+10. **Invertir un array:**
+
+```java
+int[] numeros = {1, 2, 3, 4, 5};
+int[] invertido = new int[numeros.length];
+for (int i = 0; i < numeros.length; i++) {
+    invertido[i] = numeros[numeros.length - 1 - i];
+}
+// El array invertido ahora está en la variable 'invertido'
+```
+
+### Ejercicios de ArrayList:
+
+1. **Agregar un elemento al principio:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("b", "c", "d"));
+lista.add(0, "a"); // Usa el método add(index, element) para agregar al principio
+```
+
+2. **Agregar un elemento al final:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+lista.add("d"); // Usa el método add(element) para agregar al final
+```
+
+3. **Eliminar el último elemento:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+lista.remove(lista.size() - 1); // Usa el método remove(index) para eliminar el último
+```
+
+4. **Eliminar el primer elemento:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+lista.remove(0); // Usa el método remove(index) para eliminar el primero
+```
+
+5. **Obtener el último elemento:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+String ultimo = lista.get(lista.size() - 1); // Usa el método get(index) para obtener el último
+```
+
+6. **Obtener el primer elemento:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+String primero = lista.get(0); // Usa el método get(index) para obtener el primero
+```
+
+7. **Verificar si el ArrayList está vacío:**
+
+```java
+ArrayList<String> lista = new ArrayList<>();
+boolean vacio = lista.isEmpty(); // Usa el método isEmpty() para verificar si está vacío
+```
+
+8. **Obtener el tamaño del ArrayList:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+int tamaño = lista.size(); // Usa el método size() para obtener el tamaño
+```
+
+9. **Verificar si un elemento existe:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+boolean existe = lista.contains("b"); // Usa el método contains(element) para verificar la existencia
+```
+
+10. **Obtener el índice de un elemento:**
+
+```java
+ArrayList<String> lista = new ArrayList<>(Arrays.asList("a", "b", "c"));
+int indice = lista.indexOf("b"); // Usa el método indexOf(element) para obtener el índice
+```
