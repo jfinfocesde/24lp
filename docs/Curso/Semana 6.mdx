@@ -1,5 +1,91 @@
 ---
 sidebar_position: 6
-draft: true
+draft: false
 slug: /semana6
 ---
+
+
+# Semana 6
+
+## Evalaucón Momento 1 
+
+### 1. Evaluación de conocimientos (40%)
+
+Por favor, complete la evaluación de conocimientos haciendo clic en el siguiente enlace y utilice el código asignado por el docente
+
+[https://quizizz.com/join](https://quizizz.com/join)
+
+
+### 2. Evaluación de desempeño (60%)
+
+
+#### Actividad: Calculadora simple con operaciones condicionales
+
+En esta actividad, crearás una calculadora simple que realiza operaciones básicas y algunas funciones condicionales.
+
+#### Paso 1: Configuración inicial
+1. Crea un nuevo repositorio en GitHub llamado "calculadora-simple".
+2. Crea un proyecto de java utilizando Visual Studio Code.
+3. Inicializa un repositorio local en el proyecto de java.
+4. Sincroniza el repositorio local con el repositorio remoto.
+
+#### Paso 2: Declaración de variables
+1. Dentro del archivo `Calculadora.java`, declara dos variables de tipo `double` llamadas `numero1` y `numero2`.
+2. Declara una variable de tipo `char` llamada `operacion`.
+3. Declara una variable de tipo `double` llamada `resultado`.
+
+#### Paso 3: Entrada de datos
+1. Utiliza `System.out.println()` y la clase Scanner para solicitar al usuario que ingrese el primer número.
+2. Almacena el valor en `numero1`.
+3. Repite el proceso para `numero2`.
+4. Solicita al usuario que ingrese la operación a realizar (+, -, *, /, %).
+5. Almacena el carácter en `operacion`.
+
+#### Paso 4: Realizar operaciones básicas
+1. Utiliza una estructura `if-else if-else` para determinar qué operación realizar:
+   - Si `operacion` es '+', realiza la suma.
+   - Si `operacion` es '-', realiza la resta.
+   - Si `operacion` es '*', realiza la multiplicación.
+   - Si `operacion` es '/', realiza la división.
+   - Si `operacion` es '%', calcula el resto de la división.
+   - Si no es ninguna de las anteriores, muestra un mensaje de error.
+2. Almacena el resultado en la variable `resultado`.
+
+#### Paso 5: Mostrar el resultado
+1. Utiliza `System.out.println()` para mostrar el resultado de la operación.
+
+#### Paso 6: Comparación de números
+1. Utiliza una estructura `if-else` para comparar `numero1` y `numero2`:
+   - Si `numero1` es mayor que `numero2`, muestra un mensaje indicándolo.
+   - Si `numero2` es mayor que `numero1`, muestra un mensaje indicándolo.
+   - Si son iguales, muestra un mensaje indicándolo.
+
+#### Paso 7: Verificar si el resultado es par o impar
+1. Utiliza el operador módulo (%) y una estructura `if-else` para determinar si el `resultado` es par o impar.
+2. Muestra un mensaje indicando si el resultado es par o impar.
+
+#### Paso 8: Conversión de tipos
+1. Declara una variable `int resultadoEntero` y asígnale el valor de `resultado` convertido a entero.
+2. Muestra el valor de `resultadoEntero`.
+
+#### Paso 9: Operadores lógicos
+1. Utiliza los operadores `&&` y `||` en una estructura `if-else` para verificar condiciones compuestas:
+   - Si ambos números son positivos y mayores que 10.
+   - Si al menos uno de los números es negativo o igual a cero.
+2. Muestra mensajes apropiados para cada caso.
+
+
+#### Paso 10: Guardar los cambios y subirlos al repositorio
+1. Guarda los cambios en el archivo `Calculadora.java`.
+2. Añade los archivos modificados al staging area: `git add .`
+3. Realiza un commit con un mensaje descriptivo: `git commit -m "Implementar calculadora simple"`
+4. Sube los cambios al repositorio remoto: `git push origin main`
+
+
+#### Paso 12: **Entregar el enlace:**
+    * Comparte el enlace de tu repositorio de GitHub en el archivo de evidencias de tu carpeta compartida en la semana 6.
+
+
+:::warning
+Nota: No se aceptarán actualizaciones al repositorio después de la fecha y hora de entrega.
+:::
