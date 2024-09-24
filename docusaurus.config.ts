@@ -66,19 +66,7 @@ const config: Config = {
     ],
   ],
 
-  themeConfig: {
-    // Replace with your project's social card
-    notFound: {
-      id: 'custom-404', // ID único para esta página
-      title: 'Página no encontrada', // Título de la página 404
-      description: 'La página que estás buscando no existe o ha sido movida.',
-      links: [
-        {
-          title: 'Volver a la página principal',
-          to: '/',
-        },
-      ],
-    },
+  themeConfig: {    
     image: 'img/logo.svg',    
     navbar: {
       title: 'CodeJF',
