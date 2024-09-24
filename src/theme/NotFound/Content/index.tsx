@@ -1,13 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import Translate from '@docusaurus/Translate';
-import type {Props} from '@theme/NotFound/Content';
+import type { Props } from '@theme/NotFound/Content';
 import Heading from '@theme/Heading';
+import Layout from '@theme/Layout';
 
-export default function NotFoundContent({className}: Props): JSX.Element {
+export default function NotFoundContent({ className }: Props): JSX.Element {
   return (
     <main className={clsx('container margin-vert--xl', className)}>
-      <div className="row">
+      {/* <div className="row">
         <div className="col col--6 col--offset-3">
           <Heading as="h1" className="hero__title">
             <Translate
@@ -32,7 +33,23 @@ export default function NotFoundContent({className}: Props): JSX.Element {
             </Translate>
           </p>
         </div>
-      </div>
+      </div> */}
+
+      <Layout title="Contenido próximamente disponible">
+        <main className="container margin-vert--xl">
+          <div className="row">
+            <div className="col col--6 col--offset-3">
+              <h1 className="hero__title">Contenido próximamente disponible</h1>
+              <p>Este material se activará en la fecha de la semana correspondiente.</p>
+              <p>
+                Mientras tanto, puedes volver a la{' '}
+                <a href="/">página de inicio</a> para explorar el contenido existente.
+              </p>
+              <p>Gracias por tu interés.</p>
+            </div>
+          </div>
+        </main>
+      </Layout>
     </main>
   );
 }
