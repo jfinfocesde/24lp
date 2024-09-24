@@ -68,6 +68,9 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
+    notFound: {
+      id: '404', // El mismo ID definido en `404.mdx`
+    },
     image: 'img/logo.svg',    
     navbar: {
       title: 'CodeJF',
