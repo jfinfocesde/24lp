@@ -257,15 +257,32 @@ System.out.println("La desviación estándar es: " + desviacionEstandar);
 ### 13. Solución completa
 
 ```java
+package com.example;
+
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Arrays;
 
-public class CalculadoraEstadistica {
 
+public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese los números separados por comas: ");
+        String entrada = scanner.nextLine();
+        String[] elementos = entrada.split(",");
+        double[] datos = new double[elementos.length];
+
+        for (int i = 0; i < elementos.length; i++) {
+            try {
+                datos[i] = Double.parseDouble(elementos[i]);
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Debe ser un número.");
+                // Podríamos terminar la ejecución o intentar leer nuevamente
+                // Aquí manejamos el error si el usuario ingresó algo que no es un número
+            }
+        }
 
         while (true) {
             System.out.println("\nMenú de opciones:");
@@ -280,22 +297,9 @@ public class CalculadoraEstadistica {
             int opcion = scanner.nextInt();
             scanner.nextLine(); // Consumir el salto de línea
 
-            System.out.print("Ingrese los números separados por comas: ");
-            String entrada = scanner.nextLine();
-            String[] elementos = entrada.split(",");
-            double[] datos = new double[elementos.length];
-
-            try {
-                for (int i = 0; i < elementos.length; i++) {
-                    datos[i] = Double.parseDouble(elementos[i]); 
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida. Debe ser un número.");
-                continue; // Saltar a la siguiente iteración del ciclo
-            }
-
             switch (opcion) {
-                case 1: // Calcular la media
+                case 1:
+                    // Calcular la media
                     double suma = 0;
                     for (double dato : datos) {
                         suma += dato;
@@ -303,7 +307,8 @@ public class CalculadoraEstadistica {
                     double media = suma / datos.length;
                     System.out.println("La media es: " + media);
                     break;
-                case 2: // Calcular la mediana
+                case 2:
+                    // Calcular la mediana
                     Arrays.sort(datos); // Ordenamos el array
                     int n = datos.length; // Cantidad de datos
                     double mediana;
@@ -314,7 +319,8 @@ public class CalculadoraEstadistica {
                     }
                     System.out.println("La mediana es: " + mediana);
                     break;
-                case 3: // Calcular la moda
+                case 3:
+                    // Calcular la moda
                     Map<Double, Integer> frecuencias = new HashMap<>();
                     for (double dato : datos) {
                         if (frecuencias.containsKey(dato)) {
@@ -335,7 +341,8 @@ public class CalculadoraEstadistica {
 
                     System.out.println("La moda es: " + moda);
                     break;
-                case 4: // Calcular la varianza
+                case 4:
+                    // Calcular la varianza
                     suma = 0;
                     for (double dato : datos) {
                         suma += dato;
@@ -350,7 +357,8 @@ public class CalculadoraEstadistica {
                     double varianza = sumaCuadrados / datos.length;
                     System.out.println("La varianza es: " + varianza);
                     break;
-                case 5: // Calcular la desviación estándar
+                case 5:
+                    // Calcular la desviación estándar
                     suma = 0;
                     for (double dato : datos) {
                         suma += dato;
@@ -374,7 +382,7 @@ public class CalculadoraEstadistica {
                     System.out.println("Opción inválida.");
             }
         }
-        scanner.close();
+
     }
 }
 ```
