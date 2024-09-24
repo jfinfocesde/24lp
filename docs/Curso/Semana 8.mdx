@@ -3,3 +3,430 @@ sidebar_position: 8
 draft: true
 slug: /semana8
 ---
+
+# Semana 8
+
+## Calculadora Estadística
+
+**Objetivo:**
+
+Crear un programa en Java que funcione como una calculadora estadística básica. El programa debe permitir al usuario calcular la media, mediana, moda, varianza y desviación estándar de un conjunto de números.
+
+**Requisitos:**
+
+*   El programa debe solicitar al usuario que ingrese un conjunto de números separados por comas.
+*   El programa debe mostrar un menú con las opciones de cálculo estadístico:
+    *   Media
+    *   Mediana
+    *   Moda
+    *   Varianza
+    *   Desviación estándar
+    *   Salir
+*   El programa debe ejecutar la operación estadística seleccionada por el usuario y mostrar el resultado en la consola.
+
+**Restricciones:**
+
+*   El programa debe ser implementado sin utilizar métodos (funciones).
+
+**Pistas:**
+
+*   Utiliza la clase `Scanner` para leer la entrada del usuario.
+*   Utiliza un ciclo `while` para mantener el menú de opciones en ejecución.
+*   Utiliza un `switch` para ejecutar la operación estadística correcta.
+*   Utiliza arrays para almacenar los números ingresados por el usuario.
+
+**Nota:**  Este ejercicio tiene como objetivo familiarizarte con las estructuras básicas de la programación en Java, como bucles, condiciones y operaciones con arrays. 
+
+### 1.  Preparando el Terreno
+
+*   **Crea un nuevo proyecto de Java:**  Usa un IDE como Eclipse, IntelliJ o NetBeans.
+*   **Crea una clase:**  Dentro del proyecto, crea una nueva clase llamada `CalculadoraEstadistica`.
+*   **Agrega el método `main()`:** Este es el punto de partida de nuestro programa.
+
+```java
+public class CalculadoraEstadistica {
+
+    public static void main(String[] args) {
+        // Aquí va nuestro código
+    }
+}
+```
+
+### 2.  El Lector Mágico (`Scanner`)
+
+*   Importa la clase `Scanner` para leer datos del usuario:
+
+```java
+import java.util.Scanner;
+```
+
+*   Crea un objeto `Scanner` dentro del método `main()`:
+
+```java
+Scanner scanner = new Scanner(System.in);
+```
+
+### 3.  Leyendo Números del Usuario
+
+*   Pídele al usuario que ingrese los números separados por comas:
+
+```java
+System.out.print("Ingrese los números separados por comas: ");
+String entrada = scanner.nextLine();
+```
+
+### 4.  Separando los Números
+
+*   Divide la entrada en números individuales usando `split()`:
+
+```java
+String[] elementos = entrada.split(",");
+```
+
+### 5.  Convirtiendo los Números a `double`
+
+*   Crea un array de `double` para almacenar los números:
+
+```java
+double[] datos = new double[elementos.length];
+```
+
+*   Recorre el array `elementos` y convierte cada elemento a `double`:
+
+```java
+for (int i = 0; i < elementos.length; i++) {
+    try {
+        datos[i] = Double.parseDouble(elementos[i]);
+    } catch (NumberFormatException e) {
+        System.out.println("Entrada inválida. Debe ser un número.");
+        // Podríamos terminar la ejecución o intentar leer nuevamente
+        // Aquí manejamos el error si el usuario ingresó algo que no es un número
+    }
+}
+```
+
+### 6.  El Menú y el `switch`
+
+*   Crea un bucle `while(true)` para el menú:
+
+```java
+while (true) {
+    System.out.println("\nMenú de opciones:");
+    System.out.println("1. Calcular la media");
+    System.out.println("2. Calcular la mediana");
+    System.out.println("3. Calcular la moda");
+    System.out.println("4. Calcular la varianza");
+    System.out.println("5. Calcular la desviación estándar");
+    System.out.println("6. Salir");
+    System.out.print("Ingrese una opción: ");
+
+    int opcion = scanner.nextInt();
+    scanner.nextLine(); // Consumir el salto de línea
+
+    switch (opcion) { 
+        case 1: // Calcular la media
+            // Aquí irá el código para calcular la media
+            break;
+        case 2: // Calcular la mediana
+            // Aquí irá el código para calcular la mediana
+            break;
+        case 3: // Calcular la moda
+            // Aquí irá el código para calcular la moda
+            break;
+        case 4: // Calcular la varianza
+            // Aquí irá el código para calcular la varianza
+            break;
+        case 5: // Calcular la desviación estándar
+            // Aquí irá el código para calcular la desviación estándar
+            break;
+        case 6:
+            System.out.println("Saliendo del programa...");
+            System.exit(0); // Salir del programa
+            break;
+        default:
+            System.out.println("Opción inválida.");
+    }
+}
+```
+
+### 7.  Calcular la Media
+
+*   Dentro del caso `case 1` del `switch`, agrega el código para calcular la media:
+
+```java
+double suma = 0;
+for (double dato : datos) {
+    suma += dato;
+}
+double media = suma / datos.length;
+System.out.println("La media es: " + media); 
+```
+
+### 8.  Calcular la Mediana
+
+*   Dentro del caso `case 2` del `switch`, agrega el código para calcular la mediana:
+
+```java
+Arrays.sort(datos); // Ordenamos el array
+int n = datos.length; // Cantidad de datos
+double mediana;
+if (n % 2 == 0) {
+    mediana = (datos[n / 2 - 1] + datos[n / 2]) / 2;
+} else {
+    mediana = datos[n / 2];
+}
+System.out.println("La mediana es: " + mediana);
+```
+
+### 9.  Calcular la Moda
+
+*   Dentro del caso `case 3` del `switch`, agrega el código para calcular la moda:
+
+```java
+Map<Double, Integer> frecuencias = new HashMap<>();
+for (double dato : datos) {
+    if (frecuencias.containsKey(dato)) {
+        frecuencias.put(dato, frecuencias.get(dato) + 1);
+    } else {
+        frecuencias.put(dato, 1);
+    }
+}
+
+double moda = datos[0]; // Inicializar con el primer elemento
+int maxFrecuencia = 0;
+for (Map.Entry<Double, Integer> entry : frecuencias.entrySet()) {
+    if (entry.getValue() > maxFrecuencia) {
+        moda = entry.getKey();
+        maxFrecuencia = entry.getValue();
+    }
+}
+
+System.out.println("La moda es: " + moda);
+```
+
+### 10. Calcular la Varianza
+
+*   Dentro del caso `case 4` del `switch`, agrega el código para calcular la varianza:
+
+```java
+double suma = 0;
+for (double dato : datos) {
+    suma += dato;
+}
+double media = suma / datos.length;
+
+double sumaCuadrados = 0;
+for (double dato : datos) {
+    sumaCuadrados += Math.pow(dato - media, 2);
+}
+
+double varianza = sumaCuadrados / datos.length;
+System.out.println("La varianza es: " + varianza);
+```
+
+### 11. Calcular la Desviación Estándar
+
+*   Dentro del caso `case 5` del `switch`, agrega el código para calcular la desviación estándar:
+
+```java
+double suma = 0;
+for (double dato : datos) {
+    suma += dato;
+}
+double media = suma / datos.length;
+
+double sumaCuadrados = 0;
+for (double dato : datos) {
+    sumaCuadrados += Math.pow(dato - media, 2);
+}
+
+double varianza = sumaCuadrados / datos.length;
+double desviacionEstandar = Math.sqrt(varianza);
+System.out.println("La desviación estándar es: " + desviacionEstandar);
+```
+
+### 12. Ejecutar
+
+*   ¡Ya casi terminamos! Guarda tu código y ejecútalo. Ingresa los números separados por comas, elige una opción del menú y observa los resultados.
+
+**Consejos Extra:**
+
+*   **Comentarios:**  Agrega comentarios a tu código para explicar cada paso.
+*   **Pruebas:**  Prueba tu programa con diferentes listas de números para asegurarte de que funciona correctamente.
+
+### 13. Solución completa
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class CalculadoraEstadistica {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\nMenú de opciones:");
+            System.out.println("1. Calcular la media");
+            System.out.println("2. Calcular la mediana");
+            System.out.println("3. Calcular la moda");
+            System.out.println("4. Calcular la varianza");
+            System.out.println("5. Calcular la desviación estándar");
+            System.out.println("6. Salir");
+            System.out.print("Ingrese una opción: ");
+
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea
+
+            System.out.print("Ingrese los números separados por comas: ");
+            String entrada = scanner.nextLine();
+            String[] elementos = entrada.split(",");
+            double[] datos = new double[elementos.length];
+
+            try {
+                for (int i = 0; i < elementos.length; i++) {
+                    datos[i] = Double.parseDouble(elementos[i]); 
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Debe ser un número.");
+                continue; // Saltar a la siguiente iteración del ciclo
+            }
+
+            switch (opcion) {
+                case 1: // Calcular la media
+                    double suma = 0;
+                    for (double dato : datos) {
+                        suma += dato;
+                    }
+                    double media = suma / datos.length;
+                    System.out.println("La media es: " + media);
+                    break;
+                case 2: // Calcular la mediana
+                    Arrays.sort(datos); // Ordenamos el array
+                    int n = datos.length; // Cantidad de datos
+                    double mediana;
+                    if (n % 2 == 0) {
+                        mediana = (datos[n / 2 - 1] + datos[n / 2]) / 2;
+                    } else {
+                        mediana = datos[n / 2];
+                    }
+                    System.out.println("La mediana es: " + mediana);
+                    break;
+                case 3: // Calcular la moda
+                    Map<Double, Integer> frecuencias = new HashMap<>();
+                    for (double dato : datos) {
+                        if (frecuencias.containsKey(dato)) {
+                            frecuencias.put(dato, frecuencias.get(dato) + 1);
+                        } else {
+                            frecuencias.put(dato, 1);
+                        }
+                    }
+
+                    double moda = datos[0]; // Inicializar con el primer elemento
+                    int maxFrecuencia = 0;
+                    for (Map.Entry<Double, Integer> entry : frecuencias.entrySet()) {
+                        if (entry.getValue() > maxFrecuencia) {
+                            moda = entry.getKey();
+                            maxFrecuencia = entry.getValue();
+                        }
+                    }
+
+                    System.out.println("La moda es: " + moda);
+                    break;
+                case 4: // Calcular la varianza
+                    suma = 0;
+                    for (double dato : datos) {
+                        suma += dato;
+                    }
+                    media = suma / datos.length;
+
+                    double sumaCuadrados = 0;
+                    for (double dato : datos) {
+                        sumaCuadrados += Math.pow(dato - media, 2);
+                    }
+
+                    double varianza = sumaCuadrados / datos.length;
+                    System.out.println("La varianza es: " + varianza);
+                    break;
+                case 5: // Calcular la desviación estándar
+                    suma = 0;
+                    for (double dato : datos) {
+                        suma += dato;
+                    }
+                    media = suma / datos.length;
+
+                    sumaCuadrados = 0;
+                    for (double dato : datos) {
+                        sumaCuadrados += Math.pow(dato - media, 2);
+                    }
+
+                    varianza = sumaCuadrados / datos.length;
+                    double desviacionEstandar = Math.sqrt(varianza);
+                    System.out.println("La desviación estándar es: " + desviacionEstandar);
+                    break;
+                case 6:
+                    System.out.println("Saliendo del programa...");
+                    System.exit(0); // Salir del programa
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+            }
+        }
+        scanner.close();
+    }
+}
+```
+
+## Actividad: Análisis y Presentación de Operaciones Estadísticas - Extracción del Ejercicio Anterior
+
+**Objetivo:**
+
+*   Profundizar en la comprensión de las operaciones estadísticas básicas implementadas en el ejercicio anterior.
+*   Desarrollar habilidades de trabajo en equipo y colaboración.
+*   Practicar la documentación y el uso de repositorios de código en GitHub.
+*   Aplicar el conocimiento de ciclos y condicionales en un problema de programación diferente.
+
+**Desarrollo:**
+
+1. **Formación de Grupos:** La clase se dividirá en 5 grupos de trabajo.
+2. **Asignación Aleatoria:** A cada grupo se le asignará aleatoriamente una de las siguientes operaciones estadísticas **del código del ejercicio anterior**:
+    *   **Grupo 1:** Cálculo de la Media
+    *   **Grupo 2:** Cálculo de la Mediana
+    *   **Grupo 3:** Cálculo de la Moda
+    *   **Grupo 4:** Cálculo de la Varianza
+    *   **Grupo 5:** Cálculo de la Desviación Estándar
+3. **Extracción y Análisis:** Cada grupo extraerá el código correspondiente a la operación estadística asignada del ejercicio anterior. Luego, analizarán y comprenderán el funcionamiento del código, incluyendo:
+    *   Variables utilizadas.
+    *   Estructuras de control (bucles, condicionales).
+    *   Lógica del cálculo de la operación.
+4. **Creación de un Nuevo Ejercicio:** Cada grupo deberá crear un nuevo ejercicio de programación, **diferente a las operaciones estadísticas**, que utilice ciclos y condicionales. Este ejercicio debe ser original y no debe ser similar a los ejemplos vistos en clase. El grupo debe:
+    *   Definir claramente el problema a resolver.  
+    *   Implementar el ejercicio en Java.
+5. **Preparación de Presentación:** Cada grupo preparará una presentación que explique:
+    *   El código extraído, incluyendo la lógica de la operación estadística.
+    *   Un breve análisis de la importancia de la operación en el contexto de la estadística.
+    *   Ejemplos de cómo se puede aplicar la operación en la vida real.
+    *   El nuevo ejercicio creado, explicando el problema y la implementación en Java.
+6. **Entrega en GitHub:** Cada grupo creará un repositorio en GitHub para su proyecto. El repositorio debe incluir:
+    *   El código extraído de la operación estadística asignada.
+    *   Un archivo README con una breve descripción del proyecto, la operación estadística asignada, los nombres de los miembros del grupo, una explicación del código extraído y la descripción del nuevo ejercicio.
+    *   La presentación en formato PDF.
+    *   El código Java del nuevo ejercicio.
+7. **Presentación al Grupo:** Cada grupo presentará su proyecto y análisis al resto de la clase.
+
+**Evaluación:**
+
+La actividad se evaluará considerando los siguientes aspectos:
+
+*   **Correcto análisis y extracción del código:** El código debe estar extraído correctamente y debe incluirse en el repositorio de GitHub.
+*   **Comprensión del código:** Los grupos deben demostrar un buen entendimiento del funcionamiento del código extraído, explicando las variables, estructuras de control y la lógica del cálculo.
+*   **Claridad de la presentación:** La presentación debe ser clara, concisa y fácil de entender.
+*   **Trabajo en equipo y colaboración:** Se evaluará la participación de todos los miembros del grupo en el análisis del código y la presentación.
+*   **Uso de GitHub:** Se evaluará el correcto uso de GitHub para la gestión del código y la entrega del proyecto.
+*   **Creatividad y Originalidad del Nuevo Ejercicio:** Se evaluará la originalidad del ejercicio, la lógica del algoritmo y la correcta implementación del código.
+
+8. **Entrega:**
+    * Comparte el enlace de tu repositorio de GitHub en el archivo de evidencias de tu carpeta compartida en la semana 8.
+
