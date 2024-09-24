@@ -69,7 +69,8 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     notFound: {
-      id: '404', // El mismo ID definido en `404.mdx`
+      id: '404', // ID opcional para el archivo
+      component: '@site/src/pages/404', // Ruta al componente NotFound.jsx
     },
     image: 'img/logo.svg',    
     navbar: {
