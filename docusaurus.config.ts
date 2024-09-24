@@ -68,8 +68,16 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    notFound: {      
-      component: 'src/pages/404.tsx', // Ruta al componente NotFound.jsx
+    notFound: {
+      id: 'custom-404', // ID único para esta página
+      title: 'Página no encontrada', // Título de la página 404
+      description: 'La página que estás buscando no existe o ha sido movida.',
+      links: [
+        {
+          title: 'Volver a la página principal',
+          to: '/',
+        },
+      ],
     },
     image: 'img/logo.svg',    
     navbar: {
