@@ -1,5 +1,140 @@
 ---
 sidebar_position: 12
-draft: true
+draft: false
 slug: /semana12
 ---
+
+
+# Semana 12
+
+## Evaluación Momento 1 
+
+### 1. Evaluación de conocimientos (40%)
+
+Por favor, complete la evaluación de conocimientos haciendo clic en el siguiente enlace y utilice el código asignado por el docente
+
+[https://quizizz.com/join](https://quizizz.com/join)
+
+
+### 2. Actividad: Simulación de Operaciones Bancarias Básicas (60%)
+
+Objetivo:  Crear un programa en Java que simule operaciones bancarias básicas como depositar, retirar y consultar saldo.
+
+Descripción: Esta actividad te guiará en la creación de un programa que utiliza arreglos y estructuras de control para manejar cuentas bancarias simples. Los usuarios podrán realizar operaciones básicas como depositar dinero, retirar dinero y consultar su saldo actual.
+
+Instrucciones:
+
+1.  Definir las Cuentas:
+    *   Crea dos arreglos para almacenar la información de las cuentas:
+        *   `String[] nombres`: Almacena los nombres de los titulares de las cuentas.
+        *   `double[] saldos`: Almacena los saldos de las cuentas.
+    *   Inicializa estos arreglos con valores de ejemplo para 2 o 3 cuentas. Por ejemplo:
+        ```java
+        String[] nombres = {"Juan Pérez", "María González"};
+        double[] saldos = {1500.00, 800.00};
+        ```
+2.  Mostrar el Menú:
+    *   Crea una función `mostrarMenu()` que imprima las opciones disponibles para el usuario:
+        *   1. Depositar
+        *   2. Retirar
+        *   3. Consultar Saldo
+        *   4. Salir
+    *   Ejemplo:
+        ```java
+        public static void mostrarMenu() {
+            System.out.println("----- Menú -----");
+            System.out.println("1. Depositar");
+            System.out.println("2. Retirar");
+            System.out.println("3. Consultar Saldo");
+            System.out.println("4. Salir");
+            System.out.println("----------------");
+        }
+        ```
+3.  Seleccionar Cuenta:
+    *   Implementa una función `seleccionarCuenta()` que:
+        *   Muestre la lista de nombres de titulares de cuentas con sus respectivos índices.
+        *   Solicite al usuario que ingrese el índice de la cuenta que desea utilizar.
+        *   Valide que el índice ingresado sea válido (entre 0 y la longitud del arreglo `nombres` - 1).
+        *   Devuelva el índice de la cuenta seleccionada.
+4.  Depositar:
+    *   Implementa una función `depositar()` que:
+        *   Reciba el índice de la cuenta y la cantidad a depositar.
+        *   Sume la cantidad al saldo de la cuenta en el arreglo `saldos`.
+        *   Imprima un mensaje confirmando el depósito.
+5.  Retirar:
+    *   Implementa una función `retirar()` que:
+        *   Reciba el índice de la cuenta y la cantidad a retirar.
+        *   Verifique si el saldo es suficiente para realizar el retiro.
+        *   Si el saldo es suficiente, reste la cantidad del saldo de la cuenta e imprima un mensaje confirmando el retiro.
+        *   Si el saldo no es suficiente, imprima un mensaje de error.
+6.  Consultar Saldo:
+    *   Implementa una función `consultarSaldo()` que:
+        *   Reciba el índice de la cuenta.
+        *   Imprima el saldo de la cuenta correspondiente.
+7.  Bucle Principal:
+    *   Implementa un bucle `while` que se ejecute hasta que el usuario seleccione la opción "Salir".
+    *   Dentro del bucle:
+        *   Llama a la función `mostrarMenu()` para mostrar el menú.
+        *   Lee la opción seleccionada por el usuario.
+        *   Utiliza una estructura `switch` para ejecutar la acción correspondiente a la opción seleccionada:
+            *   `case 1`: Llama a la función `seleccionarCuenta()` y luego a la función `depositar()`.
+            *   `case 2`: Llama a la función `seleccionarCuenta()` y luego a la función `retirar()`.
+            *   `case 3`: Llama a la función `seleccionarCuenta()` y luego a la función `consultarSaldo()`.
+            *   `case 4`: Termina el bucle `while`.
+            *   `default`: Muestra un mensaje de error para opciones inválidas.
+
+Ejemplo de Código (Parcial):
+
+```java
+import java.util.Scanner;
+
+public class BancoSimple {
+    public static void main(String[] args) {
+        // ... (código de los arreglos de nombres y saldos)
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            mostrarMenu();
+            System.out.print("Seleccione una opción: ");
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1: 
+                    // ... (código para depositar)
+                    break;
+                case 2: 
+                    // ... (código para retirar)
+                    break;
+                case 3: 
+                    // ... (código para consultar saldo)
+                    break;
+                case 4:
+                    System.out.println("¡Gracias por usar el Banco Simple!");
+                    System.exit(0);
+                default:
+                    System.out.println("Opción inválida. Intente de nuevo.");
+            }
+        }
+    }
+
+    // ... (código de las funciones mostrarMenu(), seleccionarCuenta(), depositar(), retirar(), consultarSaldo()) 
+}
+```
+
+Completa el código:
+
+*   Implementa las funciones `seleccionarCuenta()`, `depositar()`, `retirar()` y `consultarSaldo()` de acuerdo con las descripciones proporcionadas.
+*   Adapta el código a tus necesidades, incluyendo más cuentas, validaciones de entrada del usuario y otras funcionalidades adicionales.
+
+Consideraciones:
+
+*   Esta actividad se centra en el uso de arreglos, estructuras de control y lógica de programación básica para simular operaciones bancarias simples. No se utiliza POO para simplificar la actividad.
+*   Se recomienda seguir las instrucciones paso a paso y comprender la lógica de cada función antes de escribir el código.
+*   Prueba tu programa con diferentes escenarios para asegurarte de que funciona correctamente.
+
+Esta actividad te ayudará a comprender los conceptos básicos de la programación en Java y a aplicarlos en un contexto práctico. También puedes usarla como base para desarrollar programas más complejos en el futuro. 
+
+
+## Entregar:
+    * Comparte el enlace de tu repositorio de GitHub en el archivo de evidencias de tu carpeta compartida en la semana 6.
