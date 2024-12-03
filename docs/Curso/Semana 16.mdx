@@ -3,3 +3,297 @@ sidebar_position: 16
 draft: true
 slug: /semana16
 ---
+
+# Semana 16
+
+## Ejemeplo de colecciones en Java
+
+Ejemplo completo que muestra cómo usar varias colecciones en Java, incluyendo ArrayList, LinkedList, HashSet, TreeSet, HashMap, TreeMap, PriorityQueue, y LinkedHashMap. Este ejemplo cubre la creación, adición, eliminación y recorrido de elementos en cada tipo de colección.
+
+```java
+import java.util.*;
+
+public class CollectionsExample {
+    public static void main(String[] args) {
+        // Ejemplo de ArrayList
+        List<String> arrayList = new ArrayList<>();
+        arrayList.add("Apple");
+        arrayList.add("Banana");
+        arrayList.add("Cherry");
+        System.out.println("ArrayList:");
+        for (String fruit : arrayList) {
+            System.out.println(fruit);
+        }
+
+        // Ejemplo de LinkedList
+        List<String> linkedList = new LinkedList<>();
+        linkedList.add("Apple");
+        linkedList.add("Banana");
+        linkedList.add("Cherry");
+        System.out.println("\nLinkedList:");
+        for (String fruit : linkedList) {
+            System.out.println(fruit);
+        }
+
+        // Ejemplo de HashSet
+        Set<String> hashSet = new HashSet<>();
+        hashSet.add("Apple");
+        hashSet.add("Banana");
+        hashSet.add("Cherry");
+        System.out.println("\nHashSet:");
+        for (String fruit : hashSet) {
+            System.out.println(fruit);
+        }
+
+        // Ejemplo de TreeSet
+        Set<String> treeSet = new TreeSet<>();
+        treeSet.add("Apple");
+        treeSet.add("Banana");
+        treeSet.add("Cherry");
+        System.out.println("\nTreeSet:");
+        for (String fruit : treeSet) {
+            System.out.println(fruit);
+        }
+
+        // Ejemplo de HashMap
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Apple", 1);
+        hashMap.put("Banana", 2);
+        hashMap.put("Cherry", 3);
+        System.out.println("\nHashMap:");
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // Ejemplo de TreeMap
+        Map<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("Apple", 1);
+        treeMap.put("Banana", 2);
+        treeMap.put("Cherry", 3);
+        System.out.println("\nTreeMap:");
+        for (Map.Entry<String, Integer> entry : treeMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // Ejemplo de PriorityQueue
+        Queue<String> priorityQueue = new PriorityQueue<>();
+        priorityQueue.add("Apple");
+        priorityQueue.add("Banana");
+        priorityQueue.add("Cherry");
+        System.out.println("\nPriorityQueue:");
+        while (!priorityQueue.isEmpty()) {
+            System.out.println(priorityQueue.poll());
+        }
+
+        // Ejemplo de LinkedHashMap
+        Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("Apple", 1);
+        linkedHashMap.put("Banana", 2);
+        linkedHashMap.put("Cherry", 3);
+        System.out.println("\nLinkedHashMap:");
+        for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
+```
+
+
+## Explicación del código Java: Ejemplo de Colecciones
+
+Este código Java demuestra el uso de varias interfaces y clases de la librería de colecciones de Java.  Se muestran ejemplos de `List`, `Set`, `Map` y `Queue`, ilustrando las diferencias entre sus implementaciones.
+
+### 1. Importaciones
+
+```java
+import java.util.*;
+```
+
+Esta línea importa todas las clases del paquete `java.util`, que contiene las interfaces y clases para las colecciones.
+
+### 2. ArrayList
+
+```java
+// Ejemplo de ArrayList
+List<String> arrayList = new ArrayList<>();
+arrayList.add("Apple");
+arrayList.add("Banana");
+arrayList.add("Cherry");
+System.out.println("ArrayList:");
+for (String fruit : arrayList) {
+    System.out.println(fruit);
+}
+```
+
+Este fragmento crea una lista de tipo `String` utilizando la clase `ArrayList`.  `ArrayList` es una implementación dinámica de una lista, que permite el acceso aleatorio a los elementos (mediante índices) y el crecimiento dinámico.  El bucle `for-each` itera sobre la lista e imprime cada elemento.  La salida será:
+
+```
+ArrayList:
+Apple
+Banana
+Cherry
+```
+
+### 3. LinkedList
+
+```java
+// Ejemplo de LinkedList
+List<String> linkedList = new LinkedList<>();
+linkedList.add("Apple");
+linkedList.add("Banana");
+linkedList.add("Cherry");
+System.out.println("\nLinkedList:");
+for (String fruit : linkedList) {
+    System.out.println(fruit);
+}
+```
+
+Similar al `ArrayList`, este ejemplo crea una lista usando `LinkedList`.  `LinkedList` implementa una lista doblemente enlazada, lo que hace que las inserciones y eliminaciones sean más eficientes que en `ArrayList`, pero el acceso aleatorio es menos eficiente.  La salida será:
+
+```
+LinkedList:
+Apple
+Banana
+Cherry
+```
+
+### 4. HashSet
+
+```java
+// Ejemplo de HashSet
+Set<String> hashSet = new HashSet<>();
+hashSet.add("Apple");
+hashSet.add("Banana");
+hashSet.add("Cherry");
+System.out.println("\nHashSet:");
+for (String fruit : hashSet) {
+    System.out.println(fruit);
+}
+```
+
+Este código crea un `HashSet`, una implementación de la interfaz `Set`. Los `Set` no permiten elementos duplicados.  `HashSet` utiliza una tabla hash para una búsqueda rápida. El orden de los elementos no está garantizado. La salida será (el orden puede variar):
+
+```
+HashSet:
+Apple
+Banana
+Cherry
+```
+
+### 5. TreeSet
+
+```java
+// Ejemplo de TreeSet
+Set<String> treeSet = new TreeSet<>();
+treeSet.add("Apple");
+treeSet.add("Banana");
+treeSet.add("Cherry");
+System.out.println("\nTreeSet:");
+for (String fruit : treeSet) {
+    System.out.println(fruit);
+}
+```
+
+`TreeSet` es otra implementación de `Set`, pero mantiene los elementos ordenados según su orden natural (en este caso, el orden lexicográfico de las cadenas).  La salida será:
+
+```
+TreeSet:
+Apple
+Banana
+Cherry
+```
+
+### 6. HashMap
+
+```java
+// Ejemplo de HashMap
+Map<String, Integer> hashMap = new HashMap<>();
+hashMap.put("Apple", 1);
+hashMap.put("Banana", 2);
+hashMap.put("Cherry", 3);
+System.out.println("\nHashMap:");
+for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+Este ejemplo usa `HashMap`, una implementación de `Map`.  Un `Map` almacena pares clave-valor.  `HashMap` proporciona acceso rápido a los valores mediante sus claves. El orden de los elementos no está garantizado. La salida será (el orden puede variar):
+
+```
+HashMap:
+Apple: 1
+Banana: 2
+Cherry: 3
+```
+
+### 7. TreeMap
+
+```java
+// Ejemplo de TreeMap
+Map<String, Integer> treeMap = new TreeMap<>();
+treeMap.put("Apple", 1);
+treeMap.put("Banana", 2);
+treeMap.put("Cherry", 3);
+System.out.println("\nTreeMap:");
+for (Map.Entry<String, Integer> entry : treeMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+`TreeMap` es otra implementación de `Map` que mantiene las claves ordenadas según su orden natural. La salida será:
+
+```
+TreeMap:
+Apple: 1
+Banana: 2
+Cherry: 3
+```
+
+### 8. PriorityQueue
+
+```java
+// Ejemplo de PriorityQueue
+Queue<String> priorityQueue = new PriorityQueue<>();
+priorityQueue.add("Apple");
+priorityQueue.add("Banana");
+priorityQueue.add("Cherry");
+System.out.println("\nPriorityQueue:");
+while (!priorityQueue.isEmpty()) {
+    System.out.println(priorityQueue.poll());
+}
+```
+
+`PriorityQueue` es una implementación de `Queue` que devuelve los elementos en orden de prioridad. En este caso, el orden natural de las cadenas se usa para la prioridad (el orden puede variar).  `poll()` elimina y devuelve el elemento con la mayor prioridad. La salida será (el orden puede variar):
+
+```
+PriorityQueue:
+Apple
+Banana
+Cherry
+```
+
+
+### 9. LinkedHashMap
+
+```java
+// Ejemplo de LinkedHashMap
+Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
+linkedHashMap.put("Apple", 1);
+linkedHashMap.put("Banana", 2);
+linkedHashMap.put("Cherry", 3);
+System.out.println("\nLinkedHashMap:");
+for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+`LinkedHashMap` mantiene el orden de inserción de los elementos, a diferencia de `HashMap`. La salida será:
+
+```
+LinkedHashMap:
+Apple: 1
+Banana: 2
+Cherry: 3
+```
+
+Este ejemplo proporciona una visión general de las diferentes colecciones en Java.  La elección de la colección adecuada depende de las necesidades específicas de la aplicación, considerando factores como el rendimiento de las operaciones de acceso, inserción y eliminación, y si se necesita mantener el orden de los elementos o permitir duplicados.

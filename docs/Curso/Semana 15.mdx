@@ -3,3 +3,80 @@ sidebar_position: 15
 draft: true
 slug: /semana15
 ---
+
+# Semana 15
+
+## La clase `Collection`
+
+La clase `Collection` en Java es la interfaz raíz de la jerarquía de colecciones.  Proporciona métodos generales para trabajar con grupos de objetos, sin especificar la forma en que se implementan internamente (listas, conjuntos, etc.).  No se puede instanciar directamente, sino que se utiliza como tipo de referencia para variables que pueden contener objetos de cualquier clase que implemente `Collection`.
+
+### **Interfaces que extienden `Collection`:**
+
+* `Set`:  No permite elementos duplicados.  Interfaces que la implementan: `HashSet`, `TreeSet`, `LinkedHashSet`.
+* `List`:  Permite elementos duplicados y mantiene el orden de inserción.  Interfaces que la implementan: `ArrayList`, `LinkedList`, `Vector`.
+* `Queue`:  Diseñada para mantener elementos en orden de procesamiento.  Interfaces que la implementan: `PriorityQueue`, `LinkedList` (también implementa `List`).
+* `Deque`:  Una cola doblemente terminada.  Interfaces que la implementan: `ArrayDeque`, `LinkedList` (también implementa `List` y `Queue`).
+
+
+### **Métodos comunes de la interfaz `Collection`:**
+
+* `add(E e)`: Añade un elemento a la colección.
+* `addAll(Collection<? extends E> c)`: Añade todos los elementos de la colección especificada a la colección actual.
+* `clear()`: Elimina todos los elementos de la colección.
+* `contains(Object o)`: Devuelve `true` si la colección contiene el elemento especificado.
+* `isEmpty()`: Devuelve `true` si la colección está vacía.
+* `iterator()`: Devuelve un iterador para recorrer los elementos de la colección.
+* `remove(Object o)`: Elimina una instancia del elemento especificado de la colección.
+* `removeAll(Collection<?> c)`: Elimina todos los elementos de la colección especificada que también están presentes en la colección actual.
+* `retainAll(Collection<?> c)`: Retiene solo los elementos en la colección actual que también están presentes en la colección especificada.
+* `size()`: Devuelve el número de elementos de la colección.
+* `toArray()`: Devuelve una matriz que contiene todos los elementos de la colección.
+* `toArray(T[] a)`: Devuelve una matriz que contiene todos los elementos de la colección; el tipo de tiempo de ejecución de la matriz devuelta es el del array especificado.
+
+
+### **Ejemplos:**
+
+```java
+import java.util.*;
+
+public class EjemploCollection {
+    public static void main(String[] args) {
+
+        // Ejemplo con List (ArrayList)
+        List<String> listaNombres = new ArrayList<>();
+        listaNombres.add("Juan");
+        listaNombres.add("Maria");
+        listaNombres.add("Pedro");
+        System.out.println("Lista de nombres: " + listaNombres);
+
+        // Ejemplo con Set (HashSet) - no permite duplicados
+        Set<Integer> numeros = new HashSet<>();
+        numeros.add(1);
+        numeros.add(2);
+        numeros.add(1); // No se añadirá de nuevo
+        System.out.println("Conjunto de números: " + numeros);
+
+        // Iterando sobre una colección con un iterador
+        Iterator<String> iterador = listaNombres.iterator();
+        while (iterador.hasNext()) {
+            String nombre = iterador.next();
+            System.out.println("Nombre: " + nombre);
+        }
+
+        // Usando for-each (más conciso)
+        for (String nombre : listaNombres) {
+            System.out.println("Nombre (for-each): " + nombre);
+        }
+
+
+        // Otros métodos
+        System.out.println("Tamaño de la lista: " + listaNombres.size());
+        System.out.println("¿Contiene 'Maria'? " + listaNombres.contains("Maria"));
+        listaNombres.remove("Pedro");
+        System.out.println("Lista después de eliminar a Pedro: " + listaNombres);
+    }
+}
+```
+
+
+Este ejemplo muestra cómo utilizar `ArrayList` y `HashSet`, dos implementaciones comunes de la interfaz `Collection`.  También ilustra cómo iterar sobre los elementos de una colección utilizando un iterador y un bucle for-each.  Experimenta con otros métodos y otras implementaciones de `Collection` para comprender mejor su funcionamiento.
